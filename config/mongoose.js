@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 // acquire the connection(to check if it's successful)
 
-const URI = 'mongodb+srv://vaccine:vaccine@cluster0.pg6js.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true

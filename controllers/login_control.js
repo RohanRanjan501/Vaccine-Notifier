@@ -1,12 +1,12 @@
-const loginlist = require('../models/login')
+const registerlist = require('../models/register')
 
 module.exports.add = function (req, res) {
   console.log(req.body);
-  const temp = new loginlist(req.body) 
-   temp.save(req.body, function (err, loginlist) {
-    if (err) { console.log(err); return }
-    console.log(loginlist)
-    return res.redirect('home')
+  registerlist.find({email:req.body.email, password:req.body.password}, (error,users)=>{
+    if(users!=undefined && users.length>0){
+      return res.redirect('home')
+    }
+    else res.send("Invalid ID or password")
   })
 }
 

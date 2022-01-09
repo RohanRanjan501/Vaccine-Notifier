@@ -36,6 +36,11 @@ const listSchema = new mongoose.Schema({
   vaccine_type: {
     type: String,
     required: true
+  },
+
+  email: {
+    type: String,
+    required: true
   }
 })
 
